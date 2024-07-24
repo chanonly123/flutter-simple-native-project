@@ -3,8 +3,11 @@ project(mylib)
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Android")
     add_library(${PROJECT_NAME} SHARED mylib.cpp)
+
 elseif (CMAKE_SYSTEM_NAME STREQUAL "iOS")
     add_library(${PROJECT_NAME} STATIC mylib.cpp)
+
 else ()
-    add_library(${PROJECT_NAME} mylib.cpp)
+    add_library(${PROJECT_NAME} STATIC mylib.cpp)
+    
 endif ()
