@@ -20,8 +20,6 @@ make &&
 echo "✅✅✅✅✅✅✅✅✅✅✅ SUCCESS ✅✅✅✅✅✅✅✅✅✅✅"
 
 # determine archs (brew install file)
-echo "file =========="
-file libmylib.so
 echo "objdump=========="
 objdump -h libmylib.so | grep 'file format'
 
