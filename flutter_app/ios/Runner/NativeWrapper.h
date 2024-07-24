@@ -10,8 +10,6 @@
 
 @interface NativeWrapper : NSObject
 
-+ (int)nativeAdd :(int)a :(int)b;
-
 + (void)load;
 
 @end

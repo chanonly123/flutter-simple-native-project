@@ -9,11 +9,7 @@
 #import "NativeWrapper.h"
 #import "mylib.h"
 
-@implementation NativeWrapper : NSObject 
-
-+ (int)nativeAdd :(int)a :(int)b {
-    return nativeAdd(a, a);
-}
+@implementation NativeWrapper : NSObject
 
 + (void)load {
     load();

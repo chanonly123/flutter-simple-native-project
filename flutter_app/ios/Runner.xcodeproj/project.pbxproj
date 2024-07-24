@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
+		18726DA12C513D6900EAC8A2 /* NativeWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18D1F5322C51357F00422B8A /* NativeWrapper.mm */; };
 		18D1F52E2C5134B100422B8A /* mylib.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D1F52D2C5134B100422B8A /* mylib.xcframework */; };
-		18D1F5332C51357F00422B8A /* NativeWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18D1F5322C51357F00422B8A /* NativeWrapper.mm */; };
 		331C808B294A63AB00263BE5 /* RunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331C807B294A618700263BE5 /* RunnerTests.swift */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
 		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
@@ -287,8 +287,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18D1F5332C51357F00422B8A /* NativeWrapper.mm in Sources */,
 				74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */,
+				18726DA12C513D6900EAC8A2 /* NativeWrapper.mm in Sources */,
 				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
