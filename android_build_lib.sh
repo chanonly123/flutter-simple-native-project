@@ -5,24 +5,32 @@ cd mylib &&
 
 rm -rf build_android &&
 
-cmake -B build_android \
-  -DANDROID_PLATFORM=21 \
-  -DCMAKE_BUILD_TYPE=Release \
-  -DCMAKE_ANDROID_ARCH_ABI=arm64-v8a \
-  -DCMAKE_SYSTEM_NAME=Android \
-  -DCMAKE_TOOLCHAIN_FILE="/Users/apple/NDK/build/cmake/android.toolchain.cmake" \
-  -DCMAKE_ANDROID_STL_TYPE=gnustl_static &&
+array=("arm64-v8a" "armeabi-v7a")
+for element in "${array[@]}"
+do
+  echo "🔷 start $element"
 
-cd build_android &&
+  buildPath="build_android/$element"
 
-make &&
+  cmake -B "$buildPath" \
+    -DCMAKE_SYSTEM_NAME=Android \
+    -DANDROID_PLATFORM=21 \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DANDROID_ABI="$element" \
+    -DCMAKE_TOOLCHAIN_FILE="$ndk_path/build/cmake/android.toolchain.cmake" \
+    -DCMAKE_ANDROID_STL_TYPE=gnustl_static &&
+
+  make -C "$buildPath" &&
+
+  # determine archs (brew install file)
+  echo "objdump=========="
+  objdump -h "$buildPath/libmylib.so" | grep 'file format'
+
+  mkdir -p "../flutter_app/android/app/src/main/jniLibs/$element"
+  mv "$buildPath/libmylib.so" "../flutter_app/android/app/src/main/jniLibs/$element/mylib.so"
+
+  echo "🔷 end $element"
+
+done
 
 echo "✅✅✅✅✅✅✅✅✅✅✅ SUCCESS ✅✅✅✅✅✅✅✅✅✅✅"
-
-# determine archs (brew install file)
-echo "objdump=========="
-objdump -h libmylib.so | grep 'file format'
-
-
-# libJuceLib.so: ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), 
-# dynamically linked, BuildID[sha1]=ad8ce983dcedcb66517fb8fa605893b8ac71829a, stripped

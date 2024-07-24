@@ -6,7 +6,7 @@ class NativeWrapper {
   late Pointer<T> Function<T extends NativeType>(String symbolName) _lookup;
 
   NativeWrapper() {
-    DynamicLibrary lib = defaultTargetPlatform == TargetPlatform.iOS ? DynamicLibrary.process() : DynamicLibrary.open("libmylib.so");
+    DynamicLibrary lib = defaultTargetPlatform == TargetPlatform.iOS ? DynamicLibrary.process() : DynamicLibrary.open("mylib.so");
     _lookup = lib.lookup;
   
   }

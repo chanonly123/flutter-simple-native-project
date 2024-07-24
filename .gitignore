@@ -4,6 +4,7 @@
 build_android
 build_ios
 build
+jniLibs
 
 ### CMake ###
 CMakeLists.txt.user
